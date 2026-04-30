@@ -1,0 +1,16 @@
+Thu Apr 30 08:07:28 PM UTC 2026: 
+ treemap.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function ‘createTreeMap’:
+treemap.c:51:10: error: ‘TreeMap’ has no member named ‘lowe_than’; did you mean ‘lower_than’?
+   51 |     map->lowe_than=lowe_than;
+      |          ^~~~~~~~~
+      |          lower_than
+treemap.c:51:20: error: ‘lowe_than’ undeclared (first use in this function); did you mean ‘lower_than’?
+   51 |     map->lowe_than=lowe_than;
+      |                    ^~~~~~~~~
+      |                    lower_than
+treemap.c:51:20: note: each undeclared identifier is reported only once for each function it appears in
+aeae9a5
