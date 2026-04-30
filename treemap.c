@@ -108,9 +108,8 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
 // Si x no tiene hijo izquierdo se retorna el mismo nodo.
 
 TreeNode * minimum(TreeNode * x){
-    while(x!=NULL&&x->left!=NULL){
-        x=x->left;
-    }
+    while (x != NULL && x->left != NULL)
+        x = x->left;
     return x;
 }
 
