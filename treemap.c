@@ -122,17 +122,48 @@ TreeNode * minimum(TreeNode * x){
 // Reemplace los datos (key,value) de node con los del nodo "minimum". Elimine el nodo minimum (para hacerlo puede usar la misma función removeNode).
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-
+    if (node == NULL) return;
+    if (node->left == NULL && node->right == NULL) {
+        if (node->parent == NULL) {
+            tree->root = NULL;
+        } else {
+            if (node->parent->left == node)
+                node->parent->left = NULL;
+            else
+                node->parent->right = NULL;
+        }
+        free(node->pair);
+        free(node);
+    }
+    // Caso 2: un hijo
+    else if (node->left == NULL || node->right == NULL) {
+        TreeNode* child = (node->left != NULL) ? node->left : node->right;
+        if (node->parent == NULL) {
+            tree->root = child;
+        } else {
+            if (node->parent->left == node)
+                node->parent->left = child;
+            else
+                node->parent->right = child;
+        }
+        child->parent = node->parent;
+        free(node->pair);
+        free(node);
+    }
+    else {
+        TreeNode* min = minimum(node->right);
+        node->pair->key = min->pair->key;
+        node->pair->value = min->pair->value;
+        removeNode(tree, min);
+    }
 }
-
 void eraseTreeMap(TreeMap * tree, void* key){
     if (tree == NULL || tree->root == NULL) return;
-
     if (searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
-
 }
+
 
 // 6.- Implemente las funciones para recorrer la estructura: 
 // Pair* firstTreeMap(TreeMap* tree) retorna el primer Pair del mapa (el menor). 
