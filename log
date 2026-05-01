@@ -193,3 +193,9 @@ treemap.c:178:26: error: ‘current’ undeclared (first use in this function)
   178 |     if(tree==NULL||tree_>current==NULL){
       |                          ^~~~~~~
 f71c34a
+Fri May  1 06:15:59 PM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  27|1
+total_score: 55/60
+a624b74
