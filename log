@@ -165,3 +165,18 @@ treemap.c:182:14: error: ‘TreeNode’ has no member named ‘rigt’; did you 
       |              ^~~~
       |              right
 2d8472d
+Fri May  1 06:15:24 PM UTC 2026: 
+ treemap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:178:20: error: ‘tree_’ undeclared (first use in this function); did you mean ‘tree’?
+  178 |     if(tree==NULL||tree_>current==NULL){
+      |                    ^~~~~
+      |                    tree
+treemap.c:178:20: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:178:26: error: ‘current’ undeclared (first use in this function)
+  178 |     if(tree==NULL||tree_>current==NULL){
+      |                          ^~~~~~~
+24a6803
